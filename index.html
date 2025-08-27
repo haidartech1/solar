@@ -1,0 +1,386 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sultan Solar & General Enterprises LTD</title>
+  <meta name="description" content="Powering Your Future with Clean Energy — Sultan Solar & General Enterprises LTD"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1220; /* deep slate */
+      --bg-soft:#0f172a; /* slate-900 */
+      --card:#111827; /* gray-900 */
+      --elev:#0b1220;
+      --text:#e5e7eb; /* gray-200 */
+      --muted:#94a3b8; /* slate-400 */
+      --brand:#22d3ee; /* cyan-400 */
+      --brand-2:#a78bfa; /* violet-400 */
+      --success:#34d399; /* green-400 */
+      --danger:#fb7185; /* rose-400 */
+      --warning:#fbbf24; /* amber-400 */
+      --ring: 0 0 0 3px rgba(34,211,238,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell; color:var(--text);
+      background: radial-gradient(1000px 700px at 20% -10%, rgba(34,211,238,.1), transparent 60%),
+                  radial-gradient(800px 600px at 110% 10%, rgba(167,139,250,.12), transparent 60%),
+                  var(--bg);
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{width:min(1200px, 92%); margin:0 auto}
+    /* Navbar */
+    .navbar{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px);
+      background:linear-gradient(180deg, rgba(11,18,32,.9), rgba(11,18,32,.6)); border-bottom:1px solid rgba(148,163,184,.12)}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.3px}
+    .brand .logo{width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); display:grid; place-items:center; box-shadow:0 8px 24px rgba(34,211,238,.25)}
+    .brand span{font-size:18px}
+    .nav-links{display:flex; gap:10px; flex-wrap:wrap}
+    .nav-links a{padding:10px 14px; border-radius:12px; color:var(--muted)}
+    .nav-links a.active, .nav-links a:hover{color:white; background:rgba(167,139,250,.15);}
+    .right-actions{display:flex; gap:8px; align-items:center}
+    .btn{border:none; border-radius:14px; padding:10px 14px; font-weight:600; cursor:pointer; transition:transform .05s ease;}
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0b1220}
+    .btn-ghost{background:rgba(148,163,184,.1); color:var(--text)}
+    .toggle{width:42px; height:28px; border-radius:999px; background:rgba(148,163,184,.2); position:relative}
+    .toggle .dot{position:absolute; top:3px; left:3px; width:22px; height:22px; border-radius:999px; background:white; transition:left .25s ease}
+    body.light{--bg:#ffffff; --bg-soft:#f7fafc; --card:#ffffff; --elev:#ffffff; --text:#0f172a; --muted:#475569}
+    body.light .navbar{background:rgba(255,255,255,.8)}
+    body.light .nav-links a{color:#334155}
+    body.light .nav-links a.active, body.light .nav-links a:hover{background:#eef2ff}/* Hero */
+.hero{padding:82px 0 40px;}
+.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center}
+.chip{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:rgba(34,211,238,.15); color:#a5f3fc; font-weight:600; margin-bottom:12px}
+h1{font-size:44px; line-height:1.05; margin:10px 0 14px}
+p.lead{color:var(--muted); font-size:18px}
+.hero-card{background:linear-gradient(180deg, rgba(167,139,250,.15), rgba(34,211,238,.08)); border:1px solid rgba(148,163,184,.12); border-radius:24px; padding:20px;}
+.hero-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:14px}
+.stat{background:rgba(148,163,184,.08); border:1px solid rgba(148,163,184,.12); border-radius:16px; padding:14px; text-align:center}
+
+/* Sections */
+section{padding:40px 0; display:none}
+section.active{display:block}
+
+/* About */
+.about{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+.card{background:rgba(148,163,184,.08); border:1px solid rgba(148,163,184,.12); border-radius:20px; padding:20px}
+
+/* Services Dashboard (distinct style) */
+.dash-header{display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-bottom:14px}
+.dash-tools{display:flex; gap:8px; flex-wrap:wrap}
+.input{background:rgba(148,163,184,.12); color:var(--text); border:1px solid rgba(148,163,184,.2); padding:10px 12px; border-radius:12px; outline:none}
+.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:14px}
+.service{background:var(--card); border:1px solid rgba(148,163,184,.12); border-radius:18px; overflow:hidden; display:flex; flex-direction:column}
+.thumb{aspect-ratio:16/10; background:linear-gradient(120deg, rgba(34,211,238,.15), rgba(167,139,250,.12)); display:grid; place-items:center; color:#a5f3fc; position:relative}
+.thumb input[type=file]{position:absolute; inset:0; opacity:0; cursor:pointer}
+.svc-body{padding:12px}
+.svc-title{font-weight:700}
+.price{margin-top:6px; color:var(--muted)}
+.editable{outline:none; border-bottom:1px dashed rgba(148,163,184,.35)}
+.badge{display:inline-flex; padding:4px 8px; border-radius:999px; font-size:12px; background:rgba(52,211,153,.16); color:#bbf7d0; margin-top:6px}
+.svc-actions{display:flex; gap:8px; padding:12px; margin-top:auto}
+
+/* Contact */
+.contact-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:16px}
+.field{display:flex; flex-direction:column; gap:6px}
+.field input,.field textarea{background:rgba(148,163,184,.1); color:var(--text); border:1px solid rgba(148,163,184,.2); padding:12px; border-radius:12px; outline:none}
+
+/* Footer */
+footer{margin-top:40px; border-top:1px solid rgba(148,163,184,.12); padding:22px 0; color:var(--muted)}
+
+/* Utilities */
+.hide{display:none !important}
+@media (max-width: 900px){
+  .hero-grid{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo" title="Add your logo: replace inner SVG or use an <img>">
+          <!-- Simple solar icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4v3M12 17v3M4 12h3M17 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" stroke="#0b1220" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="12" r="4" fill="#0b1220"/>
+          </svg>
+        </div>
+        <span>Sultan Solar & General Enterprises LTD</span>
+      </div>
+      <div class="nav-links">
+        <a href="#home" data-link class="active">Home</a>
+        <a href="#about" data-link>About</a>
+        <a href="#services" data-link>Services Dashboard</a>
+        <a href="#contact" data-link>Contact</a>
+      </div>
+      <div class="right-actions">
+        <button class="btn btn-ghost" id="modeBtn" title="Toggle light/dark">Mode</button>
+        <a class="btn btn-primary" href="tel:08033222954">Call Now</a>
+      </div>
+    </div>
+  </nav>  <!-- HERO (Home) -->  <header class="hero container" id="home" data-page>
+    <div class="hero-grid">
+      <div>
+        <span class="chip">⚡ Powering Your Future with Clean Energy</span>
+        <h1>Premium Solar Solutions for Homes, Businesses & Communities</h1>
+        <p class="lead">We design, supply, and install reliable solar systems — from panels and inverters to water pumps, batteries, efficient lighting, and hybrid power setups.</p>
+        <div style="display:flex; gap:10px; margin-top:16px">
+          <a class="btn btn-primary" href="#services" data-link>Explore Services</a>
+          <a class="btn btn-ghost" href="#contact" data-link>Get a Quote</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div style="font-weight:800; font-size:22px">10+</div><div style="color:var(--muted)">Service Lines</div></div>
+          <div class="stat"><div style="font-weight:800; font-size:22px">24/7</div><div style="color:var(--muted)">Support</div></div>
+          <div class="stat"><div style="font-weight:800; font-size:22px">100%</div><div style="color:var(--muted)">Customer Focus</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img alt="Solar array" src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop" style="border-radius:16px; aspect-ratio:16/10; object-fit:cover">
+        <p style="margin-top:10px; color:var(--muted)">Tip: Replace this image with your project photo. (Right-click → Save as template.)</p>
+      </div>
+    </div>
+  </header>  <!-- ABOUT -->  <section class="container" id="about" data-page>
+    <div class="about">
+      <div class="card">
+        <h2>About Us</h2>
+        <p>At <strong>Sultan Solar & General Enterprises LTD</strong>, we deliver end‑to‑end solar solutions tailored to your needs. Our team handles design, supply, installation, and maintenance — ensuring long‑lasting, efficient systems.</p>
+        <ul>
+          <li>Solar Panel & Inverter Systems</li>
+          <li>Battery Backup & Hybrid Power</li>
+          <li>Water Pumping & Efficient Lighting</li>
+          <li>Repairs, Upgrades & Accessories</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Why Choose Us</h3>
+        <ul>
+          <li>Trained technicians and quality components</li>
+          <li>Transparent pricing (edit prices on dashboard)</li>
+          <li>Fast response and reliable support</li>
+          <li>Custom solutions for homes, offices, and SMEs</li>
+        </ul>
+      </div>
+    </div>
+  </section>  <!-- SERVICES DASHBOARD -->  <section class="container" id="services" data-page>
+    <div class="dash-header">
+      <h2 style="margin:0">Services Dashboard</h2>
+      <div class="dash-tools">
+        <input id="q" class="input" placeholder="Search services..."/>
+        <select id="cat" class="input">
+          <option value="all">All Categories</option>
+          <option>Installation</option>
+          <option>Supply</option>
+          <option>Lighting</option>
+          <option>Maintenance</option>
+          <option>Consultation</option>
+          <option>Accessories</option>
+        </select>
+        <select id="sort" class="input">
+          <option value="name">Sort: Name</option>
+          <option value="price">Sort: Price</option>
+        </select>
+        <button id="addBtn" class="btn btn-ghost">+ Add Service</button>
+        <a class="btn btn-primary" href="#contact" data-link>Request Quote</a>
+      </div>
+    </div>
+    <div id="grid" class="grid"></div>
+    <p style="color:var(--muted); margin-top:8px">Tip: Click the image area to upload a picture. Click the price to edit.</p>
+  </section>  <!-- CONTACT -->  <section class="container" id="contact" data-page>
+    <div class="contact-grid">
+      <div class="card">
+        <h2>Contact Us</h2>
+        <p><strong>Address:</strong> Maiduguri Road, Beside MTN Office, Abba Ibrahim Way, Damaturu, Yobe State.</p>
+        <p><strong>Phone:</strong> <a href="tel:08033222954">08033222954</a>, <a href="tel:08035998244">08035998244</a></p>
+        <p><strong>Email:</strong> <a href="mailto:sultansolar368696@gmail.com">sultansolar368696@gmail.com</a></p>
+        <form id="contactForm" style="margin-top:10px">
+          <div class="field"><label>Name</label><input required placeholder="Your name"></div>
+          <div class="field"><label>Phone / Email</label><input required placeholder="Contact info"></div>
+          <div class="field"><label>Message</label><textarea rows="4" placeholder="Tell us what you need..."></textarea></div>
+          <div style="display:flex; gap:10px; margin-top:10px">
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <a class="btn btn-ghost" href="mailto:sultansolar368696@gmail.com?subject=Quote%20Request%20—%20Sultan%20Solar">Email Us</a>
+          </div>
+          <p id="sent" class="hide" style="color:var(--success); margin-top:8px">✅ Message prepared locally. Your email app will open.</p>
+        </form>
+      </div>
+      <div class="card">
+        <h3>Find Us</h3>
+        <div style="aspect-ratio:16/10; border-radius:16px; overflow:hidden; border:1px solid rgba(148,163,184,.2); background:rgba(148,163,184,.08); display:grid; place-items:center">
+          <p style="color:var(--muted)">Embed a map here (Google Maps iframe) or a location image.</p>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- FOOTER -->  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap">
+      <div>© 2025 Sultan Solar & General Enterprises LTD</div>
+      <div>Designed with <strong>Haidar Tech and Consultancy Services</strong> — 08148819994</div>
+    </div>
+  </footer>  <!-- ADD SERVICE MODAL (simple) -->  <div id="modal" class="hide" style="position:fixed; inset:0; display:grid; place-items:center; background:rgba(2,6,23,.6); z-index:60">
+    <div class="card" style="width:min(560px,94%); background:var(--elev)">
+      <h3 style="margin-top:0">Add a Service</h3>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+        <div class="field"><label>Title</label><input id="mTitle" placeholder="e.g., Solar Panel Installation"></div>
+        <div class="field"><label>Category</label>
+          <select id="mCat">
+            <option>Installation</option>
+            <option>Supply</option>
+            <option>Lighting</option>
+            <option>Maintenance</option>
+            <option>Consultation</option>
+            <option>Accessories</option>
+          </select>
+        </div>
+        <div class="field"><label>Price (₦)</label><input id="mPrice" placeholder="e.g., 300000"></div>
+        <div class="field"><label>Image</label><input id="mImg" type="file" accept="image/*"></div>
+      </div>
+      <div style="display:flex; gap:10px; margin-top:12px">
+        <button id="saveSvc" class="btn btn-primary" type="button">Save</button>
+        <button id="closeModal" class="btn btn-ghost" type="button">Cancel</button>
+      </div>
+    </div>
+  </div>  <script>
+    // ---- Simple page routing ----
+    const links = document.querySelectorAll('[data-link]');
+    const pages = document.querySelectorAll('[data-page]');
+    function showPage(hash){
+      const target = (hash || location.hash || '#home').replace('#','');
+      pages.forEach(p=>p.classList.remove('active'));
+      const el = document.getElementById(target);
+      (el||document.getElementById('home')).classList.add('active');
+      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')===('#'+target)));
+    }
+    window.addEventListener('hashchange', ()=>showPage(location.hash));
+    showPage(location.hash);
+
+    // ---- Light/Dark toggle ----
+    const modeBtn = document.getElementById('modeBtn');
+    const pref = localStorage.getItem('sultan-mode');
+    if(pref==='light') document.body.classList.add('light');
+    modeBtn.onclick = ()=>{
+      document.body.classList.toggle('light');
+      localStorage.setItem('sultan-mode', document.body.classList.contains('light')?'light':'dark');
+    };
+
+    // ---- Services data (editable) ----
+    const SERVICES = [
+      {title:'Solar Panel Installation', cat:'Installation', price:'', img:''},
+      {title:'Solar Battery Installation & Backup Systems', cat:'Installation', price:'', img:''},
+      {title:'Solar-Powered Water Pump Installation', cat:'Installation', price:'', img:''},
+      {title:'Solar Inverter Supply & Setup', cat:'Supply', price:'', img:''},
+      {title:'Street & Security Solar Lighting Installation', cat:'Lighting', price:'', img:''},
+      {title:'Solar-Powered Appliance Installation', cat:'Installation', price:'', img:''},
+      {title:'Maintenance & Repair of Solar Systems', cat:'Maintenance', price:'', img:''},
+      {title:'Energy Efficiency Consultation', cat:'Consultation', price:'', img:''},
+      {title:'Hybrid Solar Power Systems', cat:'Installation', price:'', img:''},
+      {title:'Sales of Quality Solar Accessories', cat:'Accessories', price:'', img:''},
+      {title:'Solar Batteries', cat:'Supply', price:'', img:''}
+    ];
+
+    // ---- Render services ----
+    const grid = document.getElementById('grid');
+    const q = document.getElementById('q');
+    const cat = document.getElementById('cat');
+    const sort = document.getElementById('sort');
+
+    function render(){
+      const term = q.value.toLowerCase();
+      const c = cat.value;
+      let list = SERVICES.filter(s=> (c==='all' || s.cat===c) && s.title.toLowerCase().includes(term));
+      if(sort.value==='name') list.sort((a,b)=>a.title.localeCompare(b.title));
+      if(sort.value==='price') list.sort((a,b)=> (parseFloat(a.price)||0) - (parseFloat(b.price)||0));
+      grid.innerHTML = '';
+      list.forEach((svc, idx)=>{
+        const card = document.createElement('div');
+        card.className = 'service';
+        const thumb = document.createElement('div');
+        thumb.className = 'thumb';
+        thumb.innerHTML = `<span>${svc.img?'' : 'Click to add image'}</span><input type="file" accept="image/*">`;
+        if(svc.img){
+          const im = document.createElement('img'); im.src = svc.img; im.style.width='100%'; im.style.height='100%'; im.style.objectFit='cover'; im.style.position='absolute'; im.style.inset='0';
+          thumb.appendChild(im);
+        }
+        const body = document.createElement('div');
+        body.className = 'svc-body';
+        body.innerHTML = `<div class="svc-title">${svc.title}</div>`;
+        const price = document.createElement('div');
+        price.className = 'price';
+        price.innerHTML = `Price: <span class="editable" contenteditable="true" data-idx="${idx}">${svc.price||'Enter price'}</span>`;
+        const badge = document.createElement('div');
+        badge.className = 'badge';
+        badge.textContent = svc.cat;
+        const actions = document.createElement('div');
+        actions.className = 'svc-actions';
+        actions.innerHTML = `<button class="btn btn-ghost" data-quote>Quote</button><button class="btn btn-primary" data-call>Call</button>`;
+
+        card.appendChild(thumb);
+        body.appendChild(price);
+        body.appendChild(badge);
+        card.appendChild(body);
+        card.appendChild(actions);
+        grid.appendChild(card);
+
+        // image upload
+        thumb.querySelector('input').addEventListener('change', (e)=>{
+          const file = e.target.files[0]; if(!file) return;
+          const url = URL.createObjectURL(file);
+          svc.img = url; render();
+        });
+        // price edit
+        price.querySelector('[contenteditable]')?.addEventListener('blur', (e)=>{
+          SERVICES[idx].price = e.target.textContent.replace(/[^0-9.]/g,'');
+        });
+        // actions
+        actions.querySelector('[data-quote]').onclick = ()=>{
+          location.hash = '#contact';
+        };
+        actions.querySelector('[data-call]').onclick = ()=>{
+          window.location.href = 'tel:08033222954';
+        };
+      });
+    }
+    q.oninput = render; cat.onchange = render; sort.onchange = render;
+
+    // initial render
+    render();
+
+    // ---- Add service modal ----
+    const modal = document.getElementById('modal');
+    const addBtn = document.getElementById('addBtn');
+    const saveSvc = document.getElementById('saveSvc');
+    const closeModal = document.getElementById('closeModal');
+    addBtn.onclick = ()=> modal.classList.remove('hide');
+    closeModal.onclick = ()=> modal.classList.add('hide');
+    saveSvc.onclick = ()=>{
+      const title = document.getElementById('mTitle').value.trim();
+      const catv = document.getElementById('mCat').value;
+      const price = document.getElementById('mPrice').value.trim();
+      const file = document.getElementById('mImg').files[0];
+      if(!title){ alert('Enter a title'); return; }
+      const svc = {title, cat:catv, price, img:''};
+      if(file){ svc.img = URL.createObjectURL(file); }
+      SERVICES.push(svc); modal.classList.add('hide'); render();
+      document.getElementById('mTitle').value=''; document.getElementById('mPrice').value=''; document.getElementById('mImg').value='';
+    };
+
+    // ---- Contact form (open mail app) ----
+    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const [name, contact, message] = [...e.target.querySelectorAll('input,textarea')].map(x=>x.value.trim());
+      const body = encodeURIComponent(`Name: ${name}\nContact: ${contact}\n\nMessage:\n${message}`);
+      window.location.href = `mailto:sultansolar368696@gmail.com?subject=Website%20Enquiry&body=${body}`;
+      document.getElementById('sent').classList.remove('hide');
+    });
+  </script></body>
+</html>
